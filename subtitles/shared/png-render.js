@@ -1,8 +1,9 @@
+import {subtitleText} from './core.js';
 export const fonts=['Alef','Arial','Tahoma','Rubik','Heebo','David'];
 export const defaults={fontFamily:'Alef',direction:'auto',fontSize:58,bottomMargin:40,textColor:'#ffffff',shadow:true,stroke:false};
 export function drawSubtitle(ctx,text,cfg){
  const family=cfg.resolvedFamily==='PNGLocal'+cfg.fontFamily?cfg.resolvedFamily:(fonts.includes(cfg.fontFamily)?cfg.fontFamily:'Alef');
- const clean=text.replace(/[\r\n]+/g,' ').trim();let size=Number(cfg.fontSize);
+ const clean=subtitleText(text);let size=Number(cfg.fontSize);
  ctx.save();ctx.textAlign='center';ctx.textBaseline='bottom';
  ctx.font=`bold ${size}px "${family}"`;
  const measured=ctx.measureText(clean).width;

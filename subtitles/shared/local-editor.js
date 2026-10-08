@@ -1,3 +1,4 @@
+import {subtitleText} from './core.js';
 // Preserve speech; context only raises review suggestions, never invents replacements.
 export function localCues(words){
   const result=[];let sentence=[];
@@ -25,7 +26,7 @@ export function localCues(words){
     tokens.forEach((text,j)=>sentence.push({...w,text,start:w.start+(w.end-w.start)*j/tokens.length,end:w.start+(w.end-w.start)*(j+1)/tokens.length}));
     const next=words[i+1];const tag=next&&/^(אה|הא)[?؟]?$/.test(next.text.trim())&&next.start-w.end<.22;
     if(/[.!?;,׃…:]$/.test(w.text.trim())&&!tag)flush();
-  });flush();return result;
+  });flush();return result.map(c=>({...c,text:subtitleText(c.text)}));
 }
 export function contextFlags(cues,context,glossary){
   const terms=glossary.split(/[,;\n]/).map(t=>t.trim()).filter(Boolean);
