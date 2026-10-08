@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Alef';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/subtitle-0.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Heebo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/subtitle-1.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/subtitle-2.ttf) format('truetype');
+}
